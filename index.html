@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="rspv, wedding, marriage">
+    <title>Marvin & Janice's Wedding</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section class="sec1">
+    <main>
+        <div class="header">PRINCE WEDDING<br>Save The Date</div>
+
+        <div class="container">
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-box"><span id="days"></span> DAYS</div>
+                <div class="countdown-box"><span id="hours"></span> HOURS</div>
+                <div class="countdown-box"><span id="minutes"></span> MINUTES</div>
+                <div class="countdown-box"><span id="seconds"></span> SECONDS</div>
+            </div>
+    
+            <!-- Content Below Countdown -->
+            <div class="content-wrapper">
+                <img src="JNM2.jpg" alt="Marvin & Janice">
+                
+                <h3>31 AUGUST 2025</h3>
+    
+                <button id="rsvpBtn">RSVP</button>
+    
+                <p class="info"><strong>VENUE: Mayla More</strong><br>
+                Cape Road, Greenbushes, Gqeberha, 6001</p>
+            </div>
+    
+        </div>
+
+        <!-- Popup Form -->
+<div id="rsvpModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>RSVP Now</h2>
+        <form id="rsvpForm" action="https://formsubmit.co/andrewfaure6@gmail.com" method="POST">
+            <input type="text" name="name" placeholder="First Name" required>
+            <input type="text" name="surname" placeholder="Surname" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+    </main>
+</section>
+
+<!--
+<section class="sec2">
+    <header>
+        <div class="header">
+            <h1>Love Story</h1>
+        </div>
+    </header>
+    
+
+    <main>
+       <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="formal JNM.jpg" alt="image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="pink JNM.jpg" alt="image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="B_W_JNM.jpg" alt="image 3">
+            </div>
+        </div>
+        <button class="prev-button">Prev</button>
+        <button class="next-button">Next</button>
+       </div>    
+    </main>
+</section> -->
+    <script>
+        // Wedding Date
+        const weddingDate = new Date("2025-08-31T00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = weddingDate - now;
+
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days;
+                document.getElementById("hours").innerText = hours;
+                document.getElementById("minutes").innerText = minutes;
+                document.getElementById("seconds").innerText = seconds;
+            } else {
+                document.querySelector(".countdown-container").innerHTML = "The wedding has started!";
+            }
+        }
+
+        // Update every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // JS for popup form
+        // Open and close RSVP modal
+document.getElementById("rsvpBtn").onclick = function() {
+    document.getElementById("rsvpModal").style.display = "flex";
+};
+
+document.querySelector(".close").onclick = function() {
+    document.getElementById("rsvpModal").style.display = "none";
+};
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    let modal = document.getElementById("rsvpModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
+/* JS for carousel
+const carousel = document.querySelector('.carousel');
+const carouselItems = document.querySelectorAll('.carousel-item');
+
+let currentSlide = 0;
+const slideInterval = 3000; // 3 secs
+
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % carouselItems.length;
+    carousel.style.transform = `translateX(${currentSlide*-100}%)`;
+}, slideInterval);
+
+let intervalid;
+function startCarousel() {
+    intervalid = setInterval(() => {
+        currentSlide = (currentSlide + 1) % carouselItems.length;
+        carousel.style.transform = `translateX(${currentSlide*-100}%)`;
+    }, slideInterval);
+}
+
+function pauseCarousel() {
+    clearInterval (intervalid);
+}
+
+carousel.addEventListener('mouseover', pauseCarousel);
+carousel.addEventListener('mouseout', startCarousel);
+
+startCarousel(); */
+    </script>
+
+    <footer>
+        <p>&copy; 2025. Webpage created by <strong>AF Graphix Studio</strong></p>
+    </footer>
+</body>
+</html>
