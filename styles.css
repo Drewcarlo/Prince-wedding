@@ -1,20 +1,26 @@
 /* styles.css */
 body {
+  background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('ring.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #ebdcdc;
 }
 
-.header {
+ .header {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 30px;
-  background-color: #f5d260;
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to right, rgb(211, 162, 250), rgb(255, 253, 230), rgb(211, 162, 169));
   color: white;
   text-align: center;
   padding: 10px 0;
-}
+} 
 
+/*
 .header h1 {
   margin: 0;
   font-size: 36px;
@@ -59,10 +65,10 @@ body {
 /*.center {
   flex: 1;
   text-align: center;
-}*/
+} */
 
 .container {
-  padding: 20px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,9 +82,9 @@ body {
 }
 
 .countdown-box {
-  background: #a07b03;
+  background: #ff8363;
   color: white;
-  padding: 10px;
+  padding: 20px;
   border-radius: 6px;
   min-width: 80px;
   text-align: center;
@@ -92,6 +98,14 @@ body {
   font-weight: normal;
 }
 
+.wedding-title {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 5.5rem;
+  color: #f7cde6;
+  margin-top: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -100,8 +114,15 @@ body {
   text-align: center;
 }
 
+h3 {
+  color: #e61f40;
+  font-family: 'Dancing Script', cursive;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  font-size: 1.4rem;
+}
+
 #rsvpBtn {
-  background: #ffc23f;
+  background: #f38597;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -113,18 +134,59 @@ body {
 }
 
 #rsvpBtn:hover {
-  background: #997602;
+  background: #e43552;
 }
 
 .info {
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 15px;
+  color: #0a0607;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 img {
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   width: 300px;
+}
+
+.background-images {
+  position: fixed; /* images stays still while scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* images won't block clicks */
+  overflow: hidden;
+  z-index: -1; /* stays behind main content */
+}
+
+.background-images .bg-img {
+  position: absolute;
+  opacity: 0.6;
+  width: 170px;
+  height: auto;
+}
+
+/* this is how you can manually scatter the images in the background */
+.background-images .bg-img:nth-child(1) {
+  top: 30%;
+  left: 10%;
+}
+
+.background-images .bg-img:nth-child(2) {
+  top: 50%;
+  left: 20%;
+}
+
+.background-images .bg-img:nth-child(3) {
+  top: 30%;
+  left: 80%;
+}
+
+.background-images .bg-img:nth-child(4) {
+  top: 50%;
+  left: 70%;
 }
 
 /* Styles for popup form */
@@ -137,7 +199,7 @@ img {
 }
 
 .modal-content {
-  background: white; padding: 20px;
+  background: rgb(241, 184, 255); padding: 20px;
   border-radius: 10px; text-align: center;
 }
 
